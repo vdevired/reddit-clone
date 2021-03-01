@@ -104,4 +104,13 @@
     &--sort-active {
         background-color: lighten($sort-btn-hover, 5%);
     }
+
+    &--todays-comms {
+        // Always used with sort-blue and sort-active
+        padding: 0.5em 1em;
+        font-size: 0.75rem;
+        &:hover {
+            background-color: rgba($blue, 0.25);
+        }
+    }
 }

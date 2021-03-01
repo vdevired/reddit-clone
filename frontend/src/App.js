@@ -1,10 +1,8 @@
 import { Route } from "react-router-dom";
-import Header from "./components/headers/Header";
-import CardPost from "./components/posts/CardPost";
-import SortBar from "./components/SortBar";
+import TodaysCommunities from "./components/TodaysCommunities";
 
 function App() {
-    return <Route path="/" component={SortBar} />;
+    return <Route path="/" component={TodaysCommunities} />;
 }
 
 export default App;

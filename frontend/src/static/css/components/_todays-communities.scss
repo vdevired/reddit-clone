@@ -1,0 +1,75 @@
+.todays-comm {
+    border-radius: 4px;
+    border: 1px solid $post-border;
+    background-color: white;
+
+    &__banner {
+        width: 100%;
+        max-height: 120px;
+        object-fit: cover;
+        border-radius: 4px 4px 0 0;
+        margin-bottom: -0.6em;
+    }
+
+    &__title {
+        color: white;
+        width: 100%;
+        position: relative;
+        bottom: 25px;
+        left: 1em;
+
+        &--text-only {
+            position: static;
+            background-color: black;
+            border-radius: 4px 4px 0 0;
+
+            padding-top: 4em;
+            padding-left: 1em;
+            padding-bottom: 0.5em;
+        }
+    }
+
+    &__list {
+        li {
+            display: flex;
+            align-items: center;
+            padding: 0.5em 1em;
+            position: relative;
+            border-bottom: 1px solid darken($grey, 3%);
+
+            &:last-of-type {
+                border: 0;
+            }
+        }
+
+        i {
+            color: #47d15f;
+            margin-left: 0.5em;
+            margin-right: 0.5em;
+            position: relative;
+            top: 5px;
+        }
+
+        img {
+            height: 32px;
+            width: 32px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-right: 0.5em;
+        }
+    }
+
+    .btn--primary {
+        width: calc(100% - 2em);
+        margin: 1em auto 1em;
+    }
+
+    &__more-list {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        padding: 0 1em;
+        margin-bottom: 1em;
+    }
+}
