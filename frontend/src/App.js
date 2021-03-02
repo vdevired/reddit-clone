@@ -1,8 +1,8 @@
 import { Route } from "react-router-dom";
-import TodaysCommunities from "./components/TodaysCommunities";
+import TrendingCommunities from "./components/TrendingCommunities";
 
 function App() {
-    return <Route path="/" component={TodaysCommunities} />;
+    return <Route path="/" component={TrendingCommunities} />;
 }
 
 export default App;
