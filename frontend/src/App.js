@@ -1,8 +1,8 @@
 import { Route } from "react-router-dom";
-import TrendingCommunities from "./components/TrendingCommunities";
+import HomeBox from "./components/right-sidebar/HomeBox";
 
 function App() {
-    return <Route path="/" component={TrendingCommunities} />;
+    return <Route path="/" component={HomeBox} />;
 }
 
 export default App;
