@@ -1,8 +1,20 @@
 import { Route } from "react-router-dom";
-import HomeBox from "./components/right-sidebar/HomeBox";
+import AuthContainer from "./components/auth/AuthContainer";
+import SignUpForm from "./components/auth/SignUpForm";
 
 function App() {
-    return <Route path="/" component={HomeBox} />;
+    return (
+        <Route
+            path="/"
+            render={(props) => (
+                <AuthContainer
+                    {...props}
+                    formTitle="Sign Up"
+                    Form={SignUpForm}
+                />
+            )}
+        />
+    );
 }
 
 export default App;

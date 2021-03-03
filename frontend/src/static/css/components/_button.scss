@@ -1,3 +1,11 @@
+.link {
+    color: $blue;
+
+    &:hover {
+        color: lighten($blue, 10%);
+    }
+}
+
 .btn {
     display: block;
     border-radius: 20px;

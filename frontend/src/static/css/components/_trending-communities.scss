@@ -1,7 +1,5 @@
 .trending-comm {
-    border-radius: 4px;
-    border: 1px solid $post-border;
-    background-color: white;
+    @include box;
     padding: 1em;
 
     &__title {

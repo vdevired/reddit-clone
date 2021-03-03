@@ -115,7 +115,7 @@ section {
 }
 
 body {
-  line-height: 1;
+  line-height: 1.4;
 }
 
 ol,
@@ -240,6 +240,13 @@ body {
   background-color: white;
 }
 
+.link {
+  color: #2784d6;
+}
+.link:hover {
+  color: #519cdf;
+}
+
 .btn {
   display: block;
   border-radius: 20px;
@@ -333,9 +340,11 @@ body {
 }
 
 .card-post {
-  display: flex;
   border-radius: 4px;
   border: 1px solid #ccc;
+  background-color: white;
+  background: none;
+  display: flex;
   cursor: pointer;
 }
 .card-post__score-area {
@@ -380,7 +389,6 @@ body {
   margin-bottom: 0.85em;
 }
 .card-post__body {
-  line-height: 1.3;
   margin-bottom: 0.75em;
   max-height: 150px;
   overflow: hidden;
@@ -604,12 +612,102 @@ body {
 .home-box__body {
   padding: 0 0.75em;
   font-size: 0.875rem;
-  line-height: 1.3;
   margin-bottom: 1em;
 }
 .home-box .btn {
   margin: 0 0.75em;
   width: calc(100% - 1.5em);
+  margin-bottom: 0.75em;
+}
+
+.auth-container {
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background-color: white;
+  position: fixed;
+  width: 850px;
+  height: 650px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+}
+.auth-container__image {
+  height: 100%;
+  width: 131px;
+  object-fit: cover;
+}
+.auth-container__main {
+  padding-left: 1em;
+  width: 35%;
+}
+.auth-container__title {
+  font-weight: 700;
+  margin-top: 100px;
+  margin-bottom: 0.75em;
+}
+.auth-container__subtitle {
+  font-size: 0.75rem;
+}
+.auth-container__close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 1.6rem;
+  color: #878a8c;
+}
+.auth-container form {
+  margin-top: 1.5em;
+}
+.auth-container .btn {
+  width: 100%;
+}
+
+.input {
+  height: 48px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  background-color: #fcfcfb;
+  width: 100%;
+  margin-bottom: 0.75em;
+  display: flex;
+  align-items: center;
+}
+.input input {
+  border: 0;
+  width: 100%;
+  height: 100%;
+  padding: 20px 12px;
+  background-color: #fcfcfb;
+}
+.input input::placeholder {
+  font-weight: 700;
+  font-size: 0.6rem;
+}
+.input i {
+  margin-left: auto;
+  margin-right: 1em;
+  font-size: 0.75rem;
+}
+.input--good {
+  border-color: #2784d6;
+}
+.input--good i {
+  color: #2784d6;
+}
+.input--bad {
+  border-color: #ea0027;
+  margin-bottom: 0;
+}
+.input--bad i {
+  color: #ea0027;
+}
+
+.error-text {
+  color: #ea0027;
+  font-size: 0.65rem;
+  margin-top: 0.25em;
+  font-weight: 700;
   margin-bottom: 0.75em;
 }
 

@@ -1,6 +1,5 @@
 import "reflect-metadata";
 import {createConnection} from "typeorm";
-import {User} from "./entity/User";
 
 createConnection().then(async connection => {
 
@@ -16,6 +15,9 @@ createConnection().then(async connection => {
     app.use(cors());
     app.use(express.json());
 
+    const rpcRouter = require('./routes/rpc');
+
+    app.use('/rpc', rpcRouter);
     app.listen(port, () => {
         console.log(`Server is running on port: ${port}`);
     });
