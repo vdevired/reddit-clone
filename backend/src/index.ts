@@ -16,8 +16,11 @@ createConnection().then(async connection => {
     app.use(express.json());
 
     const rpcRouter = require('./routes/rpc');
+    const usersRouter = require('./routes/users');
 
     app.use('/rpc', rpcRouter);
+    app.use('/api/users', usersRouter);
+
     app.listen(port, () => {
         console.log(`Server is running on port: ${port}`);
     });

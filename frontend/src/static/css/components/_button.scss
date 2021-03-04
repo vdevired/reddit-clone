@@ -4,6 +4,14 @@
     &:hover {
         color: lighten($blue, 10%);
     }
+
+    &--secondary {
+        color: black;
+
+        &:hover {
+            color: $blue;
+        }
+    }
 }
 
 .btn {

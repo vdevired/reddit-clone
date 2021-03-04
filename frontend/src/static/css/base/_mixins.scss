@@ -3,3 +3,12 @@
     border: 1px solid $post-border;
     background-color: white;
 }
+
+@mixin overlay {
+    position: fixed;
+    width: 850px;
+    height: 650px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

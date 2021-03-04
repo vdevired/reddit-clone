@@ -3,7 +3,7 @@
 import React from "react";
 import authImg from "../../static/img/auth-img.png";
 
-const AuthContainer = ({ formTitle, Form, onClose }) => {
+const AuthContainer = ({ formTitle, Form, onSubmit, onClose }) => {
     return (
         <div className="auth-container">
             <img
@@ -25,10 +25,10 @@ const AuthContainer = ({ formTitle, Form, onClose }) => {
                     .
                 </p>
                 {/* Continue with google and continue with apple buttons */}
-                <Form></Form>
+                <Form onSubmit_={onSubmit}></Form>
             </div>
             <button onClick={onClose}>
-                <i className="far fa-times auth-container__close"></i>
+                <i className="far fa-times close"></i>
             </button>
         </div>
     );

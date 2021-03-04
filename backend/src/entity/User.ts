@@ -6,10 +6,10 @@ export default class User {
     @PrimaryGeneratedColumn()
     id: number;
 
-    @Column({unique : true, nullable : true}) // Regex validation not done here. Email not required on Reddit
+    @Column({unique : true, nullable : true}) // Regex validation not done here, done in frontend and route. Email not required on Reddit
     email: string;
 
-    @Column({unique : true, update : false}) // You cannot edit your username
+    @Column({unique : true, update : false, type : "varchar", length : 20}) // You cannot edit your username. Max username length is 20
     username: string;
 
     @Column()

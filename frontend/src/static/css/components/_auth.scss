@@ -1,11 +1,6 @@
 .auth-container {
     @include box;
-    position: fixed;
-    width: 850px;
-    height: 650px;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    @include overlay;
     display: flex;
 
     &__image {
@@ -29,14 +24,6 @@
         font-size: 0.75rem;
     }
 
-    &__close {
-        position: absolute;
-        top: 20px;
-        right: 20px;
-        font-size: 1.6rem;
-        color: $darkgrey;
-    }
-
     form {
         margin-top: 1.5em;
     }
@@ -44,6 +31,14 @@
     .btn {
         width: 100%;
     }
+}
+
+.close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 1.6rem;
+    color: $darkgrey;
 }
 
 .input {
@@ -102,4 +97,46 @@
     margin-top: 0.25em;
     font-weight: 700;
     margin-bottom: 0.75em;
+}
+
+.sign-up-2 {
+    @include box;
+    @include overlay;
+    display: flex;
+    flex-direction: column;
+
+    &__header {
+        padding: 1.5em 1.5em 0;
+        border-bottom: 1px solid hsla(195, 2%, 65%, 0.36);
+    }
+
+    &__title {
+        font-size: 1.125rem;
+        font-weight: 700;
+        margin-bottom: 0.25em;
+    }
+
+    &__subtitle {
+        font-size: 0.875rem;
+        margin-bottom: 1em;
+        padding-right: 3em; // So not too close to 'X' button
+    }
+
+    form {
+        padding: 1.5em;
+        width: 50%;
+
+        button {
+            position: absolute;
+            bottom: 1.2em;
+            right: 1.5em;
+        }
+    }
+
+    &__footer {
+        margin-top: auto;
+        padding: 1.5em;
+        border-top: 1px solid hsla(195, 2%, 65%, 0.36);
+        background-color: $grey;
+    }
 }
