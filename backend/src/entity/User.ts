@@ -1,4 +1,5 @@
-import {Entity, PrimaryGeneratedColumn, Column, CreateDateColumn} from "typeorm";
+import {Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, OneToMany} from "typeorm";
+import Community from "./Community";
 
 @Entity()
 export default class User {
@@ -17,5 +18,8 @@ export default class User {
 
     @CreateDateColumn()
     dateJoined: Date; // For cake day. Stores in UTC
+
+    @OneToMany(() => Community, community => community.owner)
+    communities: Community[];
 
 }
