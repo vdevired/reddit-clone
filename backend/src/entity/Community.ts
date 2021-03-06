@@ -1,4 +1,5 @@
-import {Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, ManyToOne} from "typeorm";
+import {Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, ManyToOne, OneToMany} from "typeorm";
+import Topic, {TopicToCommunity} from "./Topic";
 import User from "./User";
 
 enum CommunityType {
@@ -31,4 +32,6 @@ export default class Community {
     @ManyToOne(() => User, user => user.communities, {nullable : false, onDelete : "CASCADE"})
     owner: User;
 
-}
+    @OneToMany(() => TopicToCommunity, topicToCommunity => topicToCommunity.community)
+    topicToCommunities: TopicToCommunity[];
+}   
