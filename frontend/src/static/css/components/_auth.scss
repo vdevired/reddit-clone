@@ -140,3 +140,139 @@
         background-color: $grey;
     }
 }
+
+.sign-up-3 {
+    @include box;
+    @include overlay;
+    display: flex;
+    flex-direction: column;
+
+    &__header {
+        padding: 1.5em 1.5em 0;
+        border-bottom: 1px solid hsla(195, 2%, 65%, 0.36);
+    }
+
+    &__title {
+        font-size: 1.125rem;
+        font-weight: 700;
+        margin-bottom: 0.25em;
+    }
+
+    &__subtitle {
+        font-size: 0.875rem;
+        padding-right: 3em; // So not too close to 'X' button
+
+        &:last-of-type {
+            margin-bottom: 1em;
+        }
+    }
+
+    &__main {
+        flex: 1;
+        display: flex;
+    }
+
+    &__footer {
+        margin-top: auto;
+        padding: 1em 1.5em;
+        border-top: 1px solid hsla(195, 2%, 65%, 0.36);
+        background-color: $grey;
+        display: flex;
+
+        button {
+            margin-left: auto;
+        }
+    }
+}
+
+.su-topics-list {
+    // In SignUp3
+    height: 530px;
+    overflow: auto;
+    flex: 4;
+
+    .topic {
+        padding: 1em;
+        display: flex;
+        align-items: center;
+
+        i {
+            font-size: 1.4rem;
+            margin-right: 0.5em;
+        }
+
+        &__text {
+            p:first-of-type {
+                font-weight: 700;
+                margin-bottom: -0.25em;
+            }
+
+            p:nth-of-type(2) {
+                font-size: 0.875rem;
+            }
+        }
+
+        &--selected {
+            background-color: rgba($blue, 0.05);
+            border-left: 5px solid $blue;
+
+            p {
+                color: $blue;
+            }
+        }
+    }
+}
+
+.su-subs-list {
+    // Also in SignUp3
+    padding: 0 1em;
+    background-color: #f8fbfd;
+    height: 530px;
+    overflow: auto;
+    flex: 11;
+
+    .sub {
+        padding: 1em;
+        display: flex;
+        background-color: #f8fbfd;
+        border-bottom: 1px solid darken($grey, 7%);
+
+        &__image {
+            height: 45px;
+            width: 45px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 1px solid darken($grey, 7%);
+            margin-right: 1em;
+        }
+
+        &__text {
+            max-width: 400px;
+        }
+
+        &__header {
+            display: flex;
+            align-items: center;
+        }
+
+        &__title {
+            font-weight: 700;
+            margin-right: 0.75em;
+        }
+
+        &__members {
+            color: $darkgrey;
+            font-size: 0.875rem;
+        }
+
+        &__desc {
+            font-size: 0.875rem;
+        }
+
+        .btn {
+            margin-left: auto;
+            width: 120px;
+            align-self: center;
+        }
+    }
+}

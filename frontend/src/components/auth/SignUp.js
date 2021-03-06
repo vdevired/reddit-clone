@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import AuthContainer from "./AuthContainer";
 import SignUpEmailForm from "./SignUpEmailForm";
 import SignUp2 from "./SignUp2";
+import SignUp3 from "./SignUp3";
 import axios from "axios";
 import { backendUrl } from "../../static/js/constants";
 
@@ -27,7 +28,8 @@ const SignUp = () => {
         }
 
         try {
-            axios.post(`${backendUrl}/api/users`, data);
+            await axios.post(`${backendUrl}/api/users`, data);
+            setCurPage(3);
         } catch (err) {
             if (err.response == null) {
                 // Toast to check internet connection
@@ -54,6 +56,7 @@ const SignUp = () => {
                 />
             )}
             {/* Pass setCurPage directly here as no intermediate component (AuthContainer) or need for setEmail */}
+            {curPage === 3 && <SignUp3 onClose={null} />}
         </>
     );
 };
