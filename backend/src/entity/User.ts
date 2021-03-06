@@ -1,4 +1,5 @@
 import {Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, OneToMany} from "typeorm";
+import { Exclude, classToPlain } from "class-transformer";
 import Community from "./Community";
 
 @Entity()
@@ -14,6 +15,7 @@ export default class User {
     username: string;
 
     @Column()
+    @Exclude({ toPlainOnly: true })
     password: string; // No length validation done here as we store hashed version
 
     @CreateDateColumn()
@@ -22,4 +24,7 @@ export default class User {
     @OneToMany(() => Community, community => community.owner)
     communities: Community[];
 
+    toJSON() {
+        return classToPlain(this);
+      }
 }

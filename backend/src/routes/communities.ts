@@ -1,8 +1,11 @@
 import { Request, Response } from 'express';
 import {getRepository} from "typeorm";
 import Community from '../entity/Community';
+import {authenticateToken} from "../middleware";
 
 const router = require('express').Router();
+
+router.use(authenticateToken);
 
 router.route('/').post(async (req : Request, res : Response) => {
     const communityRepository = getRepository(Community);
@@ -14,22 +17,18 @@ router.route('/').post(async (req : Request, res : Response) => {
         return;
     }
 
-    const community = communityRepository.create(req.body);
+    const community = communityRepository.create(req.body as Community);
+    community.owner = req.user;
 
     try {
         await communityRepository.save(community);
         // Successfully created in DB
-        res.json({
-            name,
-            description,
-            communityType,
-            isAdult
-        }); 
+        res.json(community); 
     }
     catch (err) {
         console.log(err);
         if (err.message.includes("unique")) {
-            res.status(400).json({'Error' : 'Username and/or email are taken'});
+            res.status(400).json({'Error' : 'Name is taken'});
         }
         else if (err.message.includes("violates not-null")) {
             res.status(400).json({'Error' : 'Please provide all the required fields'});

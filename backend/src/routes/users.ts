@@ -32,16 +32,14 @@ router.route('/').post(async (req : Request, res : Response) => {
     const hashedPassword = await bcrypt.hash(password, 10);
     const user = userRepository.create({
         ...req.body, 
+        username : username.toLowerCase(), // Usernames should be case insensitive unique
         password : hashedPassword
     });
 
     try {
         await userRepository.save(user);
         // Successfully created in DB
-        res.json({
-            username,
-            email,
-        }); // Don't want to send password in response lol
+        res.json(user); // Don't want to send password in response lol
     }
     catch (err) {
         if (err.message.includes("unique")) {

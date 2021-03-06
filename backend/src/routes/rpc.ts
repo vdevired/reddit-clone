@@ -93,8 +93,10 @@ router.route('/refreshToken').post(async (req : Request, res : Response) => {
     if (refreshTokenDb === undefined) return res.status(401).json({'Error' : errorMessage});
 
     // Token should mostly be valid as it was in DB, but just to be safe
-    jwt.verify(refreshToken, process.env.REFRESH_TOKEN_SECRET, (err, {userId}) => {
+    jwt.verify(refreshToken, process.env.REFRESH_TOKEN_SECRET, (err, payload) => {
         if (err) return res.status(401).json({'Error' : errorMessage});
+        const {userId} = payload;
+        
         const accessToken = jwt.sign({userId}, process.env.ACCESS_TOKEN_SECRET, { expiresIn: '1h' });
     
         res.json({ accessToken: accessToken });
