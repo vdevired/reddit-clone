@@ -1,12 +1,14 @@
 // Encapsulates the entire sign up experience
 
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import AuthContainer from "./AuthContainer";
 import SignUpEmailForm from "./SignUpEmailForm";
 import SignUp2 from "./SignUp2";
 import SignUp3 from "./SignUp3";
 import axios from "axios";
 import { backendUrl } from "../../static/js/constants";
+
+import globalContext from "../../context/globalContext";
 
 const SignUp = () => {
     const [curPage, setCurPage] = useState(1);
@@ -38,6 +40,8 @@ const SignUp = () => {
         }
     };
 
+    const { hideSignUpFunc } = useContext(globalContext);
+
     return (
         <>
             {curPage === 1 && (
@@ -45,18 +49,14 @@ const SignUp = () => {
                     formTitle="Sign Up"
                     Form={SignUpEmailForm}
                     onSubmit={onSubmitPage1}
-                    onClose={null}
+                    onClose={hideSignUpFunc}
                 />
             )}
             {curPage === 2 && (
-                <SignUp2
-                    setCurPage={setCurPage}
-                    onSubmit={onSubmit}
-                    onClose={null}
-                />
+                <SignUp2 setCurPage={setCurPage} onSubmit={onSubmit} />
             )}
-            {/* Pass setCurPage directly here as no intermediate component (AuthContainer) or need for setEmail */}
-            {curPage === 3 && <SignUp3 onClose={null} />}
+            {/* Pass setCurPage directly here as no intermediate component (AuthContainer) or need for setEmail. And we need it for back button. */}
+            {curPage === 3 && <SignUp3 />}
         </>
     );
 };

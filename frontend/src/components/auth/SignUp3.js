@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
+import globalContext from "../../context/globalContext";
 
-const SignUp3 = ({ onClose }) => {
+const SignUp3 = () => {
+    const { hideSignUpFunc } = useContext(globalContext);
+
     return (
         <div className="sign-up-3">
             <div className="sign-up-3__header">
@@ -23,7 +26,7 @@ const SignUp3 = ({ onClose }) => {
             <div className="sign-up-3__footer">
                 <button className="btn btn--primary">Finish</button>
             </div>
-            <button onClick={onClose}>
+            <button onClick={hideSignUpFunc}>
                 <i className="far fa-times close"></i>
             </button>
         </div>
