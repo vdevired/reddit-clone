@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;700&display=swap");
 @import url("https://pro.fontawesome.com/releases/v5.10.0/css/all.css");
 html {
   box-sizing: border-box;
@@ -170,7 +170,7 @@ input[type=reset] {
 }
 
 body {
-  font-family: "Noto Sans", sans-serif;
+  font-family: "IBM Plex Sans", sans-serif;
 }
 
 button,
@@ -178,7 +178,7 @@ input,
 select,
 textarea,
 input::placeholder {
-  font-family: "Noto Sans", sans-serif;
+  font-family: "IBM Plex Sans", sans-serif;
 }
 
 body {
@@ -257,9 +257,8 @@ body {
   display: block;
   height: fit-content;
   border-radius: 20px;
-  padding: 0.6em 2.25em;
+  padding: 0.5em 1.5em;
   font-weight: 700;
-  font-size: 0.875rem;
 }
 .btn--primary {
   background-color: #2784d6;
@@ -757,9 +756,10 @@ body {
 }
 .sign-up-2__footer {
   margin-top: auto;
-  padding: 1.5em;
+  padding: 1em 1.5em;
   border-top: 1px solid rgba(164, 167, 168, 0.36);
   background-color: #f6f7f8;
+  display: flex;
 }
 
 .sign-up-3 {
@@ -878,6 +878,141 @@ body {
   margin-left: auto;
   width: 120px;
   align-self: center;
+}
+
+.create-comm {
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background-color: white;
+  position: fixed;
+  width: 850px;
+  height: 650px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  width: fit-content;
+  height: calc(100vh);
+}
+.create-comm__banner {
+  width: 30px;
+  height: 100%;
+  object-fit: cover;
+}
+.create-comm__main {
+  padding: 1em 1em 0;
+  display: flex;
+  flex-direction: column;
+}
+.create-comm__title {
+  display: block;
+  width: 100%;
+  font-weight: 500;
+  padding-bottom: 1em;
+  border-bottom: 1px solid #e2e5e8;
+  padding-top: 1em;
+}
+.create-comm__form {
+  padding-top: 1em;
+}
+.create-comm__input-heading {
+  font-weight: 500;
+  margin-bottom: 0.25em;
+}
+.create-comm__input-subheading {
+  font-size: 0.875rem;
+  color: #878a8c;
+  margin-bottom: 0.5em;
+}
+.create-comm__input {
+  width: 100%;
+  border: 1px solid #edeff1;
+  border-radius: 4px;
+  height: 48px;
+  padding: 12px 24px 4px 12px;
+  margin-bottom: 1.5em;
+}
+.create-comm__input:focus {
+  border: 2px solid #2784d6;
+}
+.create-comm__input--error {
+  margin-bottom: 0;
+}
+.create-comm__textarea {
+  width: 100%;
+  border: 1px solid #edeff1;
+  border-radius: 4px;
+  height: 100px;
+  padding: 8px;
+  margin-bottom: 1.5em;
+  resize: vertical;
+}
+.create-comm__textarea:focus {
+  border: 2px solid #2784d6;
+}
+.create-comm__radio {
+  display: flex;
+  align-items: baseline;
+  margin-bottom: 1em;
+}
+.create-comm__radio:first-of-type i {
+  color: #20a2ed;
+}
+.create-comm__radio:nth-of-type(2) i {
+  color: #10d3ba;
+}
+.create-comm__radio:nth-of-type(3) {
+  margin-bottom: 2em;
+}
+.create-comm__radio:nth-of-type(3) i {
+  color: #ffd734;
+}
+.create-comm__radio input {
+  margin-right: 0.875rem;
+}
+.create-comm__radio i {
+  margin-right: 0.875em;
+}
+.create-comm__radio p:first-of-type {
+  font-weight: 500;
+  font-size: 0.875rem;
+  margin-right: 0.5rem;
+}
+.create-comm__radio p:nth-of-type(2) {
+  color: #878a8c;
+  font-size: 0.75rem;
+}
+.create-comm__checkbox {
+  display: flex;
+  align-items: center;
+}
+.create-comm__checkbox input {
+  margin-right: 0.5em;
+}
+.create-comm__checkbox p {
+  font-weight: 500;
+  font-size: 0.875rem;
+}
+.create-comm__checkbox p:first-of-type {
+  margin-right: 0.5rem;
+  color: white;
+  background-color: #ff585b;
+  padding: 0.07em 0.2em;
+  border-radius: 4px;
+}
+.create-comm__footer {
+  margin-top: auto;
+  padding: 1em 1.5em;
+  border-top: 1px solid rgba(164, 167, 168, 0.36);
+  background-color: #f6f7f8;
+  display: flex;
+  width: calc(100% + 2em);
+  margin-left: -1em;
+}
+.create-comm__footer .btn--secondary {
+  background-color: transparent;
+  margin-right: 0.75em;
+  margin-left: auto;
 }
 
 /*# sourceMappingURL=index.css.map */

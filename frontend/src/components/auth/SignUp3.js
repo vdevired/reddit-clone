@@ -26,8 +26,8 @@ const SignUp3 = () => {
             <div className="sign-up-3__footer">
                 <button className="btn btn--primary">Finish</button>
             </div>
-            <button onClick={hideSignUpFunc}>
-                <i className="far fa-times close"></i>
+            <button className="close" onClick={hideSignUpFunc}>
+                <i className="far fa-times"></i>
             </button>
         </div>
     );

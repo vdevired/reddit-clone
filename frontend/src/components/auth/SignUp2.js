@@ -137,8 +137,8 @@ const SignUp2 = ({ setCurPage, onSubmit }) => {
                     Back
                 </a>
             </div>
-            <button onClick={hideSignUpFunc}>
-                <i className="far fa-times close"></i>
+            <button className="close" onClick={hideSignUpFunc}>
+                <i className="far fa-times"></i>
             </button>
         </div>
     );

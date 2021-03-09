@@ -9,7 +9,7 @@ const GlobalProvider = (props) => {
     const [globalState, dispatch] = useReducer(globalReducer, {
         authUser: null,
         checkedAuth: false,
-        showSignUp: true,
+        showSignUp: false,
     });
 
     const showSignUpFunc = () => {

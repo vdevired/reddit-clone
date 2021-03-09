@@ -134,10 +134,7 @@
     }
 
     &__footer {
-        margin-top: auto;
-        padding: 1.5em;
-        border-top: 1px solid hsla(195, 2%, 65%, 0.36);
-        background-color: $grey;
+        @include footer;
     }
 }
 
@@ -173,11 +170,7 @@
     }
 
     &__footer {
-        margin-top: auto;
-        padding: 1em 1.5em;
-        border-top: 1px solid hsla(195, 2%, 65%, 0.36);
-        background-color: $grey;
-        display: flex;
+        @include footer;
 
         button {
             margin-left: auto;
