@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import globalContext from "../../context/globalContext";
+import globalContext from "../../../context/globalContext";
 
 const SignUp3 = () => {
     const { hideSignUpFunc } = useContext(globalContext);

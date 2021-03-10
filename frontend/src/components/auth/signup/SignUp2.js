@@ -1,12 +1,12 @@
 // AuthContainer and SignUpEmailForm together make up SignUp1
 
 import React, { useState, useCallback, useContext } from "react";
-import Input from "./Input";
-import useAxiosGet from "../../hooks/useAxiosGet";
+import Input from "../Input";
+import useAxiosGet from "../../../hooks/useAxiosGet";
 import _ from "lodash";
 import { useForm } from "react-hook-form";
 
-import globalContext from "../../context/globalContext";
+import globalContext from "../../../context/globalContext";
 
 const SignUp2 = ({ setCurPage, onSubmit }) => {
     const { register, watch, handleSubmit } = useForm();

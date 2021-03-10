@@ -1,5 +1,5 @@
 import React from "react";
-import {v4 as uuidv4} from "uuid";
+import { v4 as uuidv4 } from "uuid";
 
 const Input = ({
     name,
@@ -18,6 +18,9 @@ const Input = ({
                 className={`input ${isBad && "input--bad"} ${
                     isGood && "input--good"
                 }`}
+                {...(isBad && errorMessages.length === 0
+                    ? { style: { marginBottom: "0.75em" } }
+                    : {})}
             >
                 <input
                     name={name}
@@ -35,7 +38,12 @@ const Input = ({
                 {isGood && <i className="far fa-check"></i>}
             </div>
             {errorMessages.map(
-                ({ text, show }) => show && <p key={uuidv4()} className="error-text">{text}</p>
+                ({ text, show }) =>
+                    show && (
+                        <p key={uuidv4()} className="error-text">
+                            {text}
+                        </p>
+                    )
             )}
         </>
     );

@@ -1,11 +1,11 @@
 import React, { useState, useCallback } from "react";
-import Input from "./Input";
-import { validateEmail } from "../../static/js/utils";
+import Input from "../Input";
+import { validateEmail } from "../../../static/js/utils";
 import _ from "lodash";
-import useAxiosGet from "../../hooks/useAxiosGet";
+import useAxiosGet from "../../../hooks/useAxiosGet";
 import { useForm } from "react-hook-form";
 
-const SignUpEmailForm = ({onSubmit_}) => {
+const SignUpEmailForm = ({ onSubmit }) => {
     const { register, watch, handleSubmit } = useForm();
     const email = watch("email", "");
     const [emailQuery, setEmailQuery] = useState(""); // Not updated instantly like email. Used to query backend to check if email is unique
@@ -25,7 +25,8 @@ const SignUpEmailForm = ({onSubmit_}) => {
     );
     const isEmailUnique = data?.unique || false;
 
-    const isBad = hasAttempted && email.length !== 0 && (!isEmailValid || !isEmailUnique);
+    const isBad =
+        hasAttempted && email.length !== 0 && (!isEmailValid || !isEmailUnique);
     const isGood = hasAttempted && isEmailValid && isEmailUnique;
 
     const errorMessages = [
@@ -40,7 +41,7 @@ const SignUpEmailForm = ({onSubmit_}) => {
     ];
 
     return (
-        <form onSubmit={handleSubmit(onSubmit_)} noValidate>
+        <form onSubmit={handleSubmit(onSubmit)} noValidate>
             <Input
                 name="email"
                 type="email"
@@ -52,7 +53,13 @@ const SignUpEmailForm = ({onSubmit_}) => {
                 errorMessages={errorMessages}
                 debouncedSetter={debouncedSetter}
             />
-            <button type="submit" className="btn btn--primary" disabled={email.length !== 0 && (!isEmailUnique || !isEmailUnique)}>
+            <button
+                type="submit"
+                className="btn btn--primary"
+                disabled={
+                    email.length !== 0 && (!isEmailUnique || !isEmailUnique)
+                }
+            >
                 Continue
             </button>
         </form>

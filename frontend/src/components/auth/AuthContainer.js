@@ -25,7 +25,7 @@ const AuthContainer = ({ formTitle, Form, onSubmit, onClose }) => {
                     .
                 </p>
                 {/* Continue with google and continue with apple buttons */}
-                <Form onSubmit_={onSubmit}></Form>
+                <Form onSubmit={onSubmit}></Form>
             </div>
             <button onClick={onClose}>
                 <i className="far fa-times close"></i>

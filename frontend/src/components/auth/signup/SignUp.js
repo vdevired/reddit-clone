@@ -1,14 +1,14 @@
 // Encapsulates the entire sign up experience
 
 import React, { useState, useContext } from "react";
-import AuthContainer from "./AuthContainer";
+import AuthContainer from "../AuthContainer";
 import SignUpEmailForm from "./SignUpEmailForm";
 import SignUp2 from "./SignUp2";
 import SignUp3 from "./SignUp3";
 import axios from "axios";
-import { backendUrl } from "../../static/js/constants";
+import { backendUrl } from "../../../static/js/constants";
 
-import globalContext from "../../context/globalContext";
+import globalContext from "../../../context/globalContext";
 
 const SignUp = () => {
     const [curPage, setCurPage] = useState(1);
