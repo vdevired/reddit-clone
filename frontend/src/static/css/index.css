@@ -246,6 +246,10 @@ body {
 .link:hover {
   color: #519cdf;
 }
+.link--strong {
+  font-weight: 700;
+  text-transform: uppercase;
+}
 .link--secondary {
   color: black;
 }
@@ -654,6 +658,13 @@ body {
 }
 .auth-container__subtitle {
   font-size: 0.75rem;
+}
+.auth-container__subtitle--margin {
+  margin-top: 1em;
+}
+.auth-container__midtitle {
+  font-size: 0.875rem;
+  margin-top: 2em;
 }
 .auth-container form {
   margin-top: 1.5em;

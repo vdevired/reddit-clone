@@ -5,6 +5,11 @@
         color: lighten($blue, 10%);
     }
 
+    &--strong {
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+
     &--secondary {
         color: black;
 

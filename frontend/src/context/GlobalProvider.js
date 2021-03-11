@@ -1,6 +1,8 @@
 import React, { useReducer } from "react";
 import { useHistory } from "react-router-dom";
 
+import { backendUrl } from "../static/js/constants";
+import { authAxios } from "../static/js/utils";
 import globalContext from "./globalContext";
 import {
     globalReducer,
@@ -8,6 +10,8 @@ import {
     HIDE_SIGN_UP,
     SHOW_LOGIN,
     HIDE_LOGIN,
+    LOGIN,
+    LOGOUT,
 } from "./globalReducer";
 
 const GlobalProvider = (props) => {
@@ -35,6 +39,32 @@ const GlobalProvider = (props) => {
         dispatch({ type: HIDE_LOGIN });
     };
 
+    const login = async (resData) => {
+        localStorage.setItem("accessToken", resData.accessToken);
+        localStorage.setItem("refreshToken", resData.refreshToken);
+        const url = `${backendUrl}/me/`;
+
+        const { data: user } = await authAxios.get(url);
+        dispatch({ type: LOGIN, user });
+        history.push("/");
+    };
+
+    const checkAuth = async () => {
+        const url = `${backendUrl}/rpc/me/`;
+        try {
+            const { data: user } = await authAxios.get(url);
+            dispatch({ type: LOGIN, user });
+        } catch (err) {
+            dispatch({ type: LOGOUT });
+        }
+    };
+
+    const logout = () => {
+        localStorage.removeItem("accessToken");
+        localStorage.removeItem("refreshToken");
+        dispatch({ type: LOGOUT });
+    };
+
     return (
         <globalContext.Provider
             value={{
@@ -46,6 +76,9 @@ const GlobalProvider = (props) => {
                 hideSignUpFunc,
                 showLoginFunc,
                 hideLoginFunc,
+                login,
+                checkAuth,
+                logout,
             }}
         >
             {props.children}

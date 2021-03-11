@@ -1,10 +1,12 @@
 // The form, to be rendered in AuthContainer
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Input from "../Input";
 import { useForm } from "react-hook-form";
+import globalContext from "../../../context/globalContext";
 
 const LoginForm = ({ onSubmit }) => {
+    const { showSignUpFunc, hideLoginFunc } = useContext(globalContext);
     const { register, watch, handleSubmit } = useForm();
 
     // Username stuff
@@ -46,6 +48,11 @@ const LoginForm = ({ onSubmit }) => {
         if (!loginSuccessful) setError401({ username: true, password: true });
     };
 
+    const toggleLogin = () => {
+        hideLoginFunc();
+        showSignUpFunc();
+    };
+
     return (
         <form onSubmit={handleSubmit(onSubmitWrapper)} noValidate>
             <Input
@@ -76,6 +83,23 @@ const LoginForm = ({ onSubmit }) => {
             >
                 Log In
             </button>
+            <p className="auth-container__subtitle auth-container__subtitle--margin">
+                Forgot your{" "}
+                <a className="link" href="#">
+                    username
+                </a>{" "}
+                or{" "}
+                <a className="link" href="#">
+                    password
+                </a>
+                ?
+            </p>
+            <p className="auth-container__midtitle">
+                New to Reddit?{" "}
+                <a className="link link--strong" onClick={toggleLogin}>
+                    SIGN UP
+                </a>
+            </p>
         </form>
     );
 };

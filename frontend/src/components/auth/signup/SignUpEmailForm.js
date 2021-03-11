@@ -1,12 +1,15 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useContext } from "react";
 import Input from "../Input";
 import { validateEmail } from "../../../static/js/utils";
 import _ from "lodash";
 import useAxiosGet from "../../../hooks/useAxiosGet";
 import { useForm } from "react-hook-form";
+import globalContext from "../../../context/globalContext";
 
 const SignUpEmailForm = ({ onSubmit }) => {
+    const { hideSignUpFunc, showLoginFunc } = useContext(globalContext);
     const { register, watch, handleSubmit } = useForm();
+
     const email = watch("email", "");
     const [emailQuery, setEmailQuery] = useState(""); // Not updated instantly like email. Used to query backend to check if email is unique
     const [hasAttempted, setHasAttempted] = useState(false); // Only show error checkmark after this is true
@@ -40,6 +43,11 @@ const SignUpEmailForm = ({ onSubmit }) => {
         },
     ];
 
+    const toggleSignUp = () => {
+        hideSignUpFunc();
+        showLoginFunc();
+    };
+
     return (
         <form onSubmit={handleSubmit(onSubmit)} noValidate>
             <Input
@@ -62,6 +70,12 @@ const SignUpEmailForm = ({ onSubmit }) => {
             >
                 Continue
             </button>
+            <p className="auth-container__midtitle">
+                Already a redditor?{" "}
+                <a className="link link--strong" onClick={toggleSignUp}>
+                    LOG IN
+                </a>
+            </p>
         </form>
     );
 };
