@@ -8,14 +8,17 @@
       "typescript": "3.3.3333"
    },
    "dependencies": {
+      "async-redis": "^1.1.7",
       "bcrypt": "^5.0.1",
       "class-transformer": "^0.4.0",
       "cors": "^2.8.5",
       "express": "^4.17.1",
       "jsonwebtoken": "^8.5.1",
+      "nodemailer": "^6.5.0",
       "pg": "^8.4.0",
       "reflect-metadata": "^0.1.10",
-      "typeorm": "0.2.31"
+      "typeorm": "0.2.31",
+      "uuid": "^8.3.2"
    },
    "scripts": {
       "start": "ts-node src/index.ts"
