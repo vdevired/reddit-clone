@@ -2,6 +2,9 @@ import { Route } from "react-router-dom";
 import { useContext, useEffect } from "react";
 import { BrowserRouter } from "react-router-dom";
 
+import Header from "./components/headers/Header";
+import AuthHeader from "./components/headers/AuthHeader";
+
 import SignUp from "./components/auth/signup/SignUp";
 import Login from "./components/auth/login/Login";
 
@@ -10,9 +13,13 @@ import CreateCommunity from "./components/CreateCommunity";
 import globalContext from "./context/globalContext";
 
 function App() {
-    const { showSignUp, showLogin, checkAuth, checkedAuth } = useContext(
-        globalContext
-    );
+    const {
+        showSignUp,
+        showLogin,
+        checkAuth,
+        checkedAuth,
+        authUser,
+    } = useContext(globalContext);
 
     useEffect(() => {
         checkAuth();
@@ -28,7 +35,9 @@ function App() {
             {/*<CreateCommunity />*/}
             {showSignUp && <SignUp />}
             {showLogin && <Login />}
-            <BrowserRouter></BrowserRouter>
+            <BrowserRouter>
+                {authUser ? <AuthHeader /> : <Header />}
+            </BrowserRouter>
         </>
     );
 }

@@ -8,6 +8,14 @@
     justify-content: space-between;
     align-items: center;
 
+    &--auth {
+        justify-content: start;
+
+        .header__section:last-child {
+            margin-left: auto;
+        }
+    }
+
     &__section {
         display: flex;
         align-items: center;
@@ -16,6 +24,15 @@
             margin: 0 0.75em;
             &:last-of-type {
                 margin: 0 2em 0 0.25em;
+            }
+        }
+
+        &--list {
+            margin-left: 1em;
+            button {
+                &:last-of-type {
+                    margin: 0 0.3em;
+                }
             }
         }
     }
@@ -30,6 +47,7 @@
 
         margin-top: 1em;
         margin-left: 1.25em;
+        margin-right: 1.25em;
     }
 
     &__search {
@@ -59,6 +77,45 @@
         &:focus-within {
             border-color: $blue;
             background-color: white;
+        }
+    }
+
+    .btn--primary,
+    .btn--secondary {
+        width: 120px;
+    }
+
+    // Auth Header
+    &__profile-pic {
+        width: 25px;
+        height: 25px;
+        border-radius: 4px;
+        border: 1px solid $grey;
+        object-fit: cover;
+        margin-right: 0.4em;
+    }
+
+    &__user-info {
+        font-size: 0.75rem;
+        font-weight: 500;
+        text-align: left;
+
+        p:first-of-type {
+            color: black;
+        }
+
+        svg {
+            margin-right: 2px;
+            width: 10px;
+            height: 10px;
+            vertical-align: middle;
+            fill: #ff4500;
+        }
+
+        p:nth-of-type(2) {
+            display: flex;
+            align-items: center;
+            color: #a8aaab;
         }
     }
 }

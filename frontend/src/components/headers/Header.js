@@ -19,9 +19,9 @@ const Header = () => {
             <div className="header__section">
                 <button className="btn btn--secondary">Log In</button>
                 <button className="btn btn--primary">Sign Up</button>
-                <button className="btn btn--user">
-                    <i class="fa fa-user"></i>
-                    <i class="fa fa-sort-down"></i>
+                <button className="btn btn--header">
+                    <i className="fa fa-user"></i>
+                    <i className="fa fa-sort-down"></i>
                 </button>
             </div>
         </div>

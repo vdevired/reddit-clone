@@ -20,11 +20,13 @@
 }
 
 .btn {
+    text-align: center;
     display: block;
     height: fit-content;
     border-radius: 20px;
-    padding: 0.5em 1.5em;
+    padding: 0.4em 1.5em;
 
+    font-size: 0.875rem;
     font-weight: 700;
 
     &--primary {
@@ -47,8 +49,29 @@
         }
     }
 
-    &--user {
+    &--tertiary {
+        // Just svg, no text so less border-radius
+        font-size: 1rem;
+        padding: 0.5em;
+        border-radius: 2px;
+        display: flex; // Makes svg more centered for some reason
+
+        svg {
+            height: 16px;
+            width: 16px;
+            line-height: 14px;
+            vertical-align: middle;
+        }
+
+        &:hover {
+            background-color: darken($grey, 5%);
+        }
+    }
+
+    &--header {
         // The rightmost section of header
+        display: flex;
+        align-items: center;
         color: $darkgrey;
         border-radius: 5px;
         border: 1px solid transparent;
@@ -59,8 +82,31 @@
         }
 
         &:hover {
-            border: 1px solid darken($grey, 20%);
+            border: 1px solid darken($grey, 5%);
         }
+    }
+
+    &--header-dropdown {
+        // Only used with header
+        width: 270px;
+        i:first-of-type {
+            font-size: 1.25rem;
+            color: $blue;
+        }
+
+        p {
+            color: black;
+            font-weight: 400;
+        }
+
+        i:last-of-type {
+            margin-left: auto;
+        }
+    }
+
+    &--header-user {
+        // Only used with header
+        padding: 0.3em 0.6em;
     }
 
     &--post {

@@ -19,7 +19,7 @@ const Login = () => {
             login(resData);
             return true;
         } catch (err) {
-            if (err.response == null) {
+            if (!err.response) {
                 // Toast to check internet connection
             }
             // Error 401

@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;700&display=swap");
-@import url("https://pro.fontawesome.com/releases/v5.10.0/css/all.css");
+@import url("https://pro.fontawesome.com/releases/v5.14.0/css/all.css");
 html {
   box-sizing: border-box;
 }
@@ -195,6 +195,12 @@ body {
   justify-content: space-between;
   align-items: center;
 }
+.header--auth {
+  justify-content: start;
+}
+.header--auth .header__section:last-child {
+  margin-left: auto;
+}
 .header__section {
   display: flex;
   align-items: center;
@@ -205,6 +211,12 @@ body {
 .header__section button:last-of-type {
   margin: 0 2em 0 0.25em;
 }
+.header__section--list {
+  margin-left: 1em;
+}
+.header__section--list button:last-of-type {
+  margin: 0 0.3em;
+}
 .header__logo {
   display: inline-block;
   background-image: url("../img/logo.png");
@@ -214,6 +226,7 @@ body {
   background-repeat: no-repeat;
   margin-top: 1em;
   margin-left: 1.25em;
+  margin-right: 1.25em;
 }
 .header__search {
   border: 1px solid transparent;
@@ -239,6 +252,38 @@ body {
   border-color: #2784d6;
   background-color: white;
 }
+.header .btn--primary,
+.header .btn--secondary {
+  width: 120px;
+}
+.header__profile-pic {
+  width: 25px;
+  height: 25px;
+  border-radius: 4px;
+  border: 1px solid #f6f7f8;
+  object-fit: cover;
+  margin-right: 0.4em;
+}
+.header__user-info {
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-align: left;
+}
+.header__user-info p:first-of-type {
+  color: black;
+}
+.header__user-info svg {
+  margin-right: 2px;
+  width: 10px;
+  height: 10px;
+  vertical-align: middle;
+  fill: #ff4500;
+}
+.header__user-info p:nth-of-type(2) {
+  display: flex;
+  align-items: center;
+  color: #a8aaab;
+}
 
 .link {
   color: #2784d6;
@@ -258,10 +303,12 @@ body {
 }
 
 .btn {
+  text-align: center;
   display: block;
   height: fit-content;
   border-radius: 20px;
-  padding: 0.5em 1.5em;
+  padding: 0.4em 1.5em;
+  font-size: 0.875rem;
   font-weight: 700;
 }
 .btn--primary {
@@ -280,17 +327,51 @@ body {
 .btn--secondary:hover {
   background-color: rgba(39, 132, 214, 0.05);
 }
-.btn--user {
+.btn--tertiary {
+  font-size: 1rem;
+  padding: 0.5em;
+  border-radius: 2px;
+  display: flex;
+}
+.btn--tertiary svg {
+  height: 16px;
+  width: 16px;
+  line-height: 14px;
+  vertical-align: middle;
+}
+.btn--tertiary:hover {
+  background-color: #e8eaed;
+}
+.btn--header {
+  display: flex;
+  align-items: center;
   color: #878a8c;
   border-radius: 5px;
   border: 1px solid transparent;
   padding: 0.6em;
 }
-.btn--user i {
+.btn--header i {
   margin: 0 0.5em;
 }
-.btn--user:hover {
-  border: 1px solid #bdc4cb;
+.btn--header:hover {
+  border: 1px solid #e8eaed;
+}
+.btn--header-dropdown {
+  width: 270px;
+}
+.btn--header-dropdown i:first-of-type {
+  font-size: 1.25rem;
+  color: #2784d6;
+}
+.btn--header-dropdown p {
+  color: black;
+  font-weight: 400;
+}
+.btn--header-dropdown i:last-of-type {
+  margin-left: auto;
+}
+.btn--header-user {
+  padding: 0.3em 0.6em;
 }
 .btn--post {
   padding: 0.4em;

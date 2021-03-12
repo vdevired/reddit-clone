@@ -1,5 +1,4 @@
 import React, { useReducer } from "react";
-import { useHistory } from "react-router-dom";
 
 import { backendUrl } from "../static/js/constants";
 import { authAxios } from "../static/js/utils";
@@ -15,7 +14,6 @@ import {
 } from "./globalReducer";
 
 const GlobalProvider = (props) => {
-    const history = useHistory();
     const [globalState, dispatch] = useReducer(globalReducer, {
         authUser: null,
         checkedAuth: false,
@@ -42,11 +40,10 @@ const GlobalProvider = (props) => {
     const login = async (resData) => {
         localStorage.setItem("accessToken", resData.accessToken);
         localStorage.setItem("refreshToken", resData.refreshToken);
-        const url = `${backendUrl}/me/`;
+        const url = `${backendUrl}/rpc/me/`;
 
         const { data: user } = await authAxios.get(url);
         dispatch({ type: LOGIN, user });
-        history.push("/");
     };
 
     const checkAuth = async () => {
